@@ -4,6 +4,10 @@
 
 namespace sort{
 
+	void insertionSort(){
+		
+	}
+
 	void selectionSort(float* A, int n){
 		int smallest = 0;
 		int i = 0;
