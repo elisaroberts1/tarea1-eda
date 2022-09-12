@@ -62,7 +62,18 @@ namespace sort{
 		}
 		return p;
 	}
+	
+	void merge(float *A, int i, int j, int k){
+		
 
+
+
+
+	}
+
+	void mergeSort(){
+
+	}
 	void quickSort(float* A, int i, int j){
 		if (i < j){
 			int k = split_qs(A, i, j);
