@@ -5,13 +5,10 @@
 namespace sort{
 
 	void insertionSort(float* A, int n){
-		int i = 1;
-		int j = 0;
-		float elem;
-		for (i = 1; i < n; i++){
-			elem = A[i];
-			j = i - 1;
-			while ((j >= 0) && (A[i] < A[j])){
+		for (int i = 1; i < n; i++){
+			float elem = A[i];
+			int j = i - 1;
+			while ((j >= 0) && (elem < A[j])){
 				A[j+1] = A[j];
 				j = j - 1;
 			}
