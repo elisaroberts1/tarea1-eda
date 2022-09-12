@@ -11,7 +11,7 @@ namespace sort{
 		for (i = 1; i < n; i++){
 			elem = A[i];
 			j = i - 1;
-			while ((j > 0) && (A[i] < A[j])){
+			while ((j >= 0) && (A[i] < A[j])){
 				A[j+1] = A[j];
 				j = j - 1;
 			}
@@ -62,18 +62,7 @@ namespace sort{
 		}
 		return p;
 	}
-	
-	void merge(float *A, int i, int j, int k){
-		
 
-
-
-
-	}
-
-	void mergeSort(){
-
-	}
 	void quickSort(float* A, int i, int j){
 		if (i < j){
 			int k = split_qs(A, i, j);
