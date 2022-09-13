@@ -31,6 +31,45 @@ namespace sort{
 		}
 	}
 
+	void merge(float* A, int i, int j, int k){
+		int cte = j-i+1;
+		float B[cte];
+		int q = 1;
+		int p1 = i;
+		int p2 = k + 1;
+		while (p1 <= k && p2 <= j){
+			if (A[p1] <= A[p2]){
+				B[q] = A[p1];
+				p1 = p1 + 1;
+			}
+			else{
+				B[q] = A[p2];
+				p2 = p2 + 1;
+			}
+			q = q + 1;
+		}
+		while (p1 <= k){
+			B[q] = A[p1];
+			p1 = p1 + 1;
+			q = q + 1;
+		}
+		while (p2 <= j){
+			B[q] = A[p2];
+			p2 = p2 + 1;
+			q = q + 1;
+		}
+		A = B;
+	}
+
+	void mergeSort(float* A, int i, int j){
+		int k = (i + j)/2;
+		if (i < j){
+			mergeSort(A, i, k);
+			mergeSort(A, k+1, j);
+			merge(A, i, j, k);
+		}
+	}
+
 	int split_qs(float* A, int i, int j){
 		/***
 		 * split for quicksort

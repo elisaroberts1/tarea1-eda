@@ -19,7 +19,7 @@ void testSort(int max_size, int n_sizes){
 		A = sort::createRandomIntArray(n, 0, 100);
 		auto start = std::chrono::high_resolution_clock::now();
 		//change the sort method here
-		sort::insertionSort(A, n);
+		sort::mergeSort(A, 0, n);
 		//
 		auto end = std::chrono::high_resolution_clock::now();
 		long elapsed =  getElapsedTime(start, end);
