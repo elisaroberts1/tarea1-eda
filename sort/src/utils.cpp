@@ -64,33 +64,37 @@ namespace sort{
 		}
 		return V;
 	}
-	int getMax(int array[], int n) {
-		int max = array[0];
-		for (int i = 1; i < n; i++)
-			if (array[i] > max)
-			max = array[i];
+
+	int getMax(int* A, int n) {
+		int max = A[0];
+		for (int i = 1; i < n; i++){
+			if (A[i] > max){
+				max = A[i];
+			}
+		}
 		return max;
 	}
-	void countingSort(int array[], int size, int place) {
+
+	void countingSort(int* A, int n, int p) {
 		const int max = 10;
-		int output[size];
+		int output[n];
 		int count[max];
 
-		for (int i = 0; i < max; ++i)
+		for (int i = 0; i < max; ++i){
 			count[i] = 0;
-
-		for (int i = 0; i < size; i++)
-			count[(array[i] / place) % 10]++;
-
-		for (int i = 1; i < max; i++)
+		}
+		for (int i = 0; i < n; i++){
+			count[(A[i] / p) % 10]++;
+		}
+		for (int i = 1; i < max; i++){
 			count[i] += count[i - 1];
-
-		for (int i = size - 1; i >= 0; i--) {
-			output[count[(array[i] / place) % 10] - 1] = array[i];
-			count[(array[i] / place) % 10]--;
 		}
-
-		for (int i = 0; i < size; i++)
-			array[i] = output[i];
+		for (int i = n - 1; i >= 0; i--) {
+			output[count[(A[i] / p) % 10] - 1] = A[i];
+			count[(A[i] / p) % 10]--;
 		}
+		for (int i = 0; i < n; i++){
+			A[i] = output[i];
+		}
+	}
 }

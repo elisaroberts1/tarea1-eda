@@ -11,8 +11,8 @@ namespace sort{
 	void swap(float* A, int i, int j);
 	int getRandomInt(int min, int max);
 	int* linspace(int max, int n_parts);
-	int getMax(int array[], int n);
-	void countingSort(int array[], int size, int place);
+	int getMax(int* A, int n);
+	void countingSort(int* A, int n, int p);
 }
 
 #endif
