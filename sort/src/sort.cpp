@@ -129,13 +129,12 @@ namespace sort{
 	int  k_smallest(float* A, int n, int k){
 		return k_smallest(A, 0, n-1, k);
 	}
-	void RadixSort(){
-		
+	void radixsort(int array[], int size) {
+		// Get maximum element
+		int max = getMax(array, size);
+
+		// Apply counting sort to sort elements based on place value.
+		for (int place = 1; max / place > 0; place *= 10)
+			countingSort(array, size, place);
 	}
 }
-
-
-
-
-
-//bduiendklaeepflfew
