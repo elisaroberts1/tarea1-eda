@@ -65,7 +65,7 @@ namespace sort{
 		return V;
 	}
 
-	int getMax(int* A, int n) {
+	int getMax(float* A, int n) {
 		int max = A[0];
 		for (int i = 1; i < n; i++){
 			if (A[i] > max){
@@ -75,23 +75,22 @@ namespace sort{
 		return max;
 	}
 
-	void countingSort(int* A, int n, int p) {
-		const int max = 10;
+	void countingSort(float* A, int n, int p) {
 		int output[n];
-		int count[max];
+		int count[10] = { 0 };
 
-		for (int i = 0; i < max; ++i){
+		for (int i = 0; i < 10; ++i){
 			count[i] = 0;
 		}
 		for (int i = 0; i < n; i++){
-			count[(A[i] / p) % 10]++;
+			count[int(A[i] / p) % 10]++;
 		}
-		for (int i = 1; i < max; i++){
+		for (int i = 1; i < 10; i++){
 			count[i] += count[i - 1];
 		}
 		for (int i = n - 1; i >= 0; i--) {
-			output[count[(A[i] / p) % 10] - 1] = A[i];
-			count[(A[i] / p) % 10]--;
+			output[count[int(A[i] / p) % 10] - 1] = A[i];
+			count[int(A[i] / p) % 10]--;
 		}
 		for (int i = 0; i < n; i++){
 			A[i] = output[i];

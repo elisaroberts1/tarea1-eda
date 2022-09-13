@@ -16,10 +16,10 @@ void testSort(int max_size, int n_sizes){
 	int n = 0;
 	for (int i = 0; i < n_sizes; i++){
 		n = sizes[i];
-		A = sort::createRandomArray(n);
+		A = sort::createRandomIntArray(n, 0, 99999);
 		auto start = std::chrono::high_resolution_clock::now();
 		//change the sort method here
-		sort::insertionSort(A, n);
+		sort::radixsort(A, n);
 		//
 		auto end = std::chrono::high_resolution_clock::now();
 		long elapsed =  getElapsedTime(start, end);
@@ -46,11 +46,11 @@ int main(int nargs, char** nvargs){
 
 	std::srand(std::time(nullptr));
 	int n = 10;
-	float* A = sort::createRandomArray(n);
+	float* A = sort::createRandomIntArray(n, 0, 99999);
 	sort::printArray(A, n);
 //	std::cout << sort::k_smallest(A, n, 2);
 	auto start = std::chrono::high_resolution_clock::now();
-	sort::insertionSort(A, n);
+	sort::radixsort(A, n);
 	sort::printArray(A, n);
 	sort::deleteArray(A);
 	auto end = std::chrono::high_resolution_clock::now();

@@ -129,7 +129,7 @@ namespace sort{
 	int  k_smallest(float* A, int n, int k){
 		return k_smallest(A, 0, n-1, k);
 	}
-	void radixsort(int* A, int n){
+	void radixsort(float* A, int n){
 		int max = getMax(A, n);
 		for (int p = 1; max / p > 0; p *= 10){
 			countingSort(A, n, p);

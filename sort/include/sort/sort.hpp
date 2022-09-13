@@ -11,7 +11,7 @@ namespace sort {
 	void quickSort(float* A, int n);
 	int  k_smallest(float* A, int i, int j, int k);
 	int  k_smallest(float* A, int n, int k);
-	void radixsort(int* A, int n);
+	void radixsort(float* A, int n);
 }
 
 #endif
